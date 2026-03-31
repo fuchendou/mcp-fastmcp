@@ -1,0 +1,26 @@
+{
+  "$schema": "https://gofastmcp.com/public/schemas/fastmcp.json/v1.json",
+  "source": {
+    "path": "apps/example_mcp/src/example_mcp/server.py",
+    "entrypoint": "mcp"
+  },
+  "environment": {
+    "type": "uv",
+    "python": "3.12",
+    "dependencies": [
+      "fastmcp>=2,<3"
+    ],
+    "editable": "."
+  },
+  "deployment": {
+    "transport": "stdio",
+    "log_level": "INFO",
+    "env": {
+      "MCP_ENVIRONMENT": "development",
+      "MCP_LOG_LEVEL": "INFO",
+      "EXAMPLE_MCP_SERVER_NAME": "Example MCP",
+      "EXAMPLE_MCP_GREETING": "Hello from FastMCP config",
+      "EXAMPLE_MCP_OWNER": "platform-team"
+    }
+  }
+}

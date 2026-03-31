@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "example-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--package",
+        "example-mcp",
+        "example-mcp"
+      ],
+      "cwd": ".",
+      "env": {
+        "MCP_ENVIRONMENT": "development",
+        "MCP_LOG_LEVEL": "INFO",
+        "EXAMPLE_MCP_SERVER_NAME": "Example MCP",
+        "EXAMPLE_MCP_GREETING": "Hello from Claude Desktop",
+        "EXAMPLE_MCP_OWNER": "platform-team"
+      }
+    }
+  }
+}

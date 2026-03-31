@@ -1,0 +1,33 @@
+{
+  "$schema": "https://gofastmcp.com/public/schemas/fastmcp.json/v1.json",
+  "source": {
+    "path": "apps/example_mcp/src/example_mcp/server.py",
+    "entrypoint": "mcp"
+  },
+  "environment": {
+    "type": "uv",
+    "python": "3.12",
+    "dependencies": [
+      "fastmcp>=2,<3"
+    ],
+    "editable": "."
+  },
+  "deployment": {
+    "transport": "sse",
+    "host": "0.0.0.0",
+    "port": 8001,
+    "path": "/sse",
+    "log_level": "INFO",
+    "env": {
+      "MCP_ENVIRONMENT": "development",
+      "MCP_LOG_LEVEL": "INFO",
+      "MCP_TRANSPORT": "sse",
+      "MCP_HOST": "0.0.0.0",
+      "MCP_PORT": "8001",
+      "MCP_PATH": "/sse",
+      "EXAMPLE_MCP_SERVER_NAME": "Example MCP",
+      "EXAMPLE_MCP_GREETING": "Hello from FastMCP SSE config",
+      "EXAMPLE_MCP_OWNER": "platform-team"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+services:
+  example-mcp-http:
+    profiles: ["http"]
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        MCP_PACKAGE: example-mcp
+        MCP_ENTRYPOINT: example-mcp
+    environment:
+      MCP_ENVIRONMENT: development
+      MCP_LOG_LEVEL: INFO
+      MCP_TRANSPORT: http
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8000
+      MCP_PATH: /mcp
+      EXAMPLE_MCP_SERVER_NAME: Example MCP
+      EXAMPLE_MCP_GREETING: Hello from Docker HTTP
+      EXAMPLE_MCP_OWNER: platform-team
+    ports:
+      - "8000:8000"
+
+  example-mcp-sse:
+    profiles: ["sse"]
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        MCP_PACKAGE: example-mcp
+        MCP_ENTRYPOINT: example-mcp
+    environment:
+      MCP_ENVIRONMENT: development
+      MCP_LOG_LEVEL: INFO
+      MCP_TRANSPORT: sse
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8001
+      MCP_PATH: /sse
+      EXAMPLE_MCP_SERVER_NAME: Example MCP
+      EXAMPLE_MCP_GREETING: Hello from Docker SSE
+      EXAMPLE_MCP_OWNER: platform-team
+    ports:
+      - "8001:8001"

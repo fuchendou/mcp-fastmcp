@@ -1,0 +1,62 @@
+[project]
+name = "mcp-dev-workspace"
+version = "0.1.0"
+description = "Team-oriented FastMCP workspace for building and operating multiple MCP servers."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.390",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.11.4",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = [
+    "apps/*",
+    "packages/*",
+]
+
+[tool.uv.sources]
+mcp-shared = { workspace = true }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["example_mcp", "mcp_shared"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
+include = [
+    "apps",
+    "packages",
+    "tests",
+]
+extraPaths = [
+    "apps/example_mcp/src",
+    "packages/mcp_shared/src",
+]
+reportMissingTypeStubs = false
+reportUnknownMemberType = false
+reportUnknownVariableType = false
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers --cov=apps/example_mcp/src/example_mcp --cov=packages/mcp_shared/src/mcp_shared --cov-report=term-missing"
+testpaths = ["tests"]
+
