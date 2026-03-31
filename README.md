@@ -167,4 +167,3 @@ docker compose --profile sse up --build
 - 容器与 HTTP / SSE 部署说明见 [`docs/deployment.md`](docs/deployment.md)
 - 版本与发布策略见 [`docs/release-versioning.md`](docs/release-versioning.md)
 - 发布自动化基线见 [`.github/workflows/release.yml`](.github/workflows/release.yml)
-
